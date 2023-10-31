@@ -18,16 +18,30 @@ class StockMetrics(StockData):
         """
         averages = []
         for row in self.data:
-            ...
+            new_row = [float(val) for val in row[1:] if val != "" and val != " "]
+            avg = stats.mean(new_row)
+            averages.append(round(avg, 3))
 
         return averages
 
     def median02(self):
         """pt2
         """
-        ...
+        medians = []
+        for row in self.data:
+            new_row = [float(val) for val in row[1:] if val != "" and val != " "]
+            med = stats.median(new_row)
+            medians.append(med)
+            
+        return medians
 
     def stddev03(self):
         """pt3
         """
-        ...
+        sds = []
+        for row in self.data:
+            new_row = [float(val) for val in row[1:] if val != "" and val != " "]
+            stdv = stats.stdev(new_row)
+            sds.append(round(stdv, 3))
+            
+        return sds
